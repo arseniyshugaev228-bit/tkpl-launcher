@@ -445,7 +445,7 @@ function setError(id, text) {
 // На GitHub Pages нет Python-сервера, поэтому там отзывы уходят через Web3Forms.
 // Локально (python py/server.py) форма по-прежнему шлёт их на /api/feedback.
 // Ключ берётся на web3forms.com, он публичный по задумке сервиса.
-const WEB3FORMS_KEY = "";
+const WEB3FORMS_KEY = "e3db0de3-7fb1-4ffb-b0c1-e92e013af4af";
 const USE_WEB3FORMS = location.hostname.endsWith("github.io");
 
 function validate(data) {
