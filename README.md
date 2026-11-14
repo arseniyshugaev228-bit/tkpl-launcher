@@ -15,7 +15,7 @@ pip install -r py/requirements.txt
 python py/server.py
 ```
 
-Открыть http://localhost:8000
+Открыть https://arseniyshugaev228-bit.github.io/tkpl-launcher/
 
 ## Почта для отзывов
 
