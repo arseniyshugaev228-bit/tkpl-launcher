@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TKPL Launcher — любая версия Minecraft в один клик</title>
+<meta name="description" content="Бесплатный лаунчер Minecraft для Windows: версии от 1.0 до 26.3, Forge, NeoForge, Fabric и OptiFine, сборки с модами и новости Mojang.">
+<meta name="theme-color" content="#090d0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%235b3a24'/%3E%3Crect width='8' height='3' fill='%233dff7a'/%3E%3Crect y='3' x='1' width='1' height='1' fill='%233dff7a'/%3E%3Crect y='3' x='5' width='2' height='1' fill='%233dff7a'/%3E%3Crect x='3' y='5' width='1' height='1' fill='%23704a30'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">К содержимому</a>
+<div class="burst-layer" id="burst-layer" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="logo" href="#top" aria-label="TKPL Launcher — наверх">
+      <span class="logo__cube" aria-hidden="true"></span>
+      <span class="logo__text">TKPL</span>
+    </a>
+    <nav class="nav__links" aria-label="Разделы">
+      <a href="#features">Возможности</a>
+      <a href="#how">Как начать</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#feedback">Отзыв</a>
+    </nav>
+    <a class="btn btn--sm js-download" href="../downloads/TKPL-Launcher.exe" download="TKPL Launcher.exe">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+      Скачать
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ПЕРВЫЙ ЭКРАН -->
+  <section class="hero" id="top">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <canvas class="hero__particles" id="particles" aria-hidden="true"></canvas>
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow" data-reveal>Бесплатный лаунчер Minecraft для Windows</p>
+        <h1 class="hero__title" id="hero-title" aria-label="Любая версия. Один клик.">
+          Любая версия.<br>
+          <span class="accent">Один клик.</span>
+        </h1>
+        <p class="hero__lead" data-reveal>
+          От 1.0 до 26.3, с Forge, NeoForge, Fabric или OptiFine.
+          Лаунчер сам скачает игру, Java и загрузчик, а тебе останется нажать «Играть».
+        </p>
+        <div class="hero__cta" data-reveal>
+          <a class="btn btn--lg btn--shine js-download js-magnet" href="../downloads/TKPL-Launcher.exe" download="TKPL Launcher.exe">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+            Скачать для Windows
+          </a>
+          <span class="hero__meta">.exe · 23 МБ · Windows 10/11<br>без установки, просто запусти</span>
+        </div>
+      </div>
+
+      <div class="hero__visual" data-reveal-visual>
+        <div class="cube cube--a" aria-hidden="true"><span class="cube__body"><i></i><i></i><i></i></span></div>
+        <div class="cube cube--b" aria-hidden="true"><span class="cube__body"><i></i><i></i><i></i></span></div>
+        <div class="cube cube--c" aria-hidden="true"><span class="cube__body"><i></i><i></i><i></i></span></div>
+
+        <figure class="app" id="app" aria-label="Так выглядит окно TKPL Launcher">
+          <div class="app__bar">
+            <span class="app__brand"><span class="logo__cube logo__cube--sm" aria-hidden="true"></span>TKPL Launcher</span>
+            <span class="app__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+          <div class="app__body">
+            <aside class="app__side" aria-hidden="true">
+              <span class="app__nav is-active">Главная</span>
+              <span class="app__nav">Сборки</span>
+              <span class="app__nav">Новости</span>
+              <span class="app__nav">Настройки</span>
+              <span class="app__user"><span class="app__avatar"></span>Nickname</span>
+            </aside>
+            <div class="app__main">
+              <div class="app__banner">
+                <canvas id="terrain" width="320" height="120" aria-hidden="true"></canvas>
+                <div class="app__banner-text">
+                  <small>Новая версия</small>
+                  <strong>Minecraft 26.3</strong>
+                </div>
+              </div>
+              <div class="app__install">
+                <div class="app__install-row"><span>Установка Fabric 1.21.1</span><span class="js-pct">0%</span></div>
+                <div class="app__track"><span class="app__fill js-fill"></span></div>
+                <small class="js-step">Скачиваем библиотеки…</small>
+              </div>
+              <div class="app__cards" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="app__play">
+                <span class="app__ver">Fabric · 1.21.1<svg viewBox="0 0 24 24" class="ico ico--xs"><path d="m6 9 6 6 6-6"/></svg></span>
+                <span class="app__btn js-playbtn">УСТАНОВИТЬ</span>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <ul class="stats wrap" aria-label="Коротко о лаунчере">
+      <li data-reveal><strong>1.0 → <span class="js-count" data-to="26.3" data-dec="1">26.3</span></strong><span>все версии Java Edition</span></li>
+      <li data-reveal><strong><span class="js-count" data-to="4">4</span></strong><span>загрузчика модов</span></li>
+      <li data-reveal><strong>0 ₽</strong><span>и без рекламы</span></li>
+      <li data-reveal><strong><span class="js-count" data-to="1">1</span> файл</strong><span>скачал и запустил</span></li>
+    </ul>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <ul class="marquee__track" id="marquee"><li><span class="mq-cube"></span>1.0</li><li><span class="mq-cube"></span>Forge</li><li><span class="mq-cube"></span>1.7.10</li><li><span class="mq-cube"></span>Fabric</li><li><span class="mq-cube"></span>1.12.2</li><li><span class="mq-cube"></span>NeoForge</li><li><span class="mq-cube"></span>1.16.5</li><li><span class="mq-cube"></span>OptiFine</li><li><span class="mq-cube"></span>1.20.1</li><li><span class="mq-cube"></span>Fabric API</li><li><span class="mq-cube"></span>1.21.1</li><li><span class="mq-cube"></span>Сборки</li><li><span class="mq-cube"></span>26.3</li><li><span class="mq-cube"></span>1.0</li><li><span class="mq-cube"></span>Forge</li><li><span class="mq-cube"></span>1.7.10</li><li><span class="mq-cube"></span>Fabric</li><li><span class="mq-cube"></span>1.12.2</li><li><span class="mq-cube"></span>NeoForge</li><li><span class="mq-cube"></span>1.16.5</li><li><span class="mq-cube"></span>OptiFine</li><li><span class="mq-cube"></span>1.20.1</li><li><span class="mq-cube"></span>Fabric API</li><li><span class="mq-cube"></span>1.21.1</li><li><span class="mq-cube"></span>Сборки</li><li><span class="mq-cube"></span>26.3</li></ul>
+  </div>
+
+  <!-- ЗНАКОМАЯ БОЛЬ -->
+  <section class="pain">
+    <div class="wrap pain__inner">
+      <h2 data-reveal>Хотел поиграть с модами,<br><span class="muted">а полвечера ставил Forge.</span></h2>
+      <ul class="pain__list">
+        <li class="pain__item" data-reveal>
+          <span class="pain__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="i-x" d="M7 7l10 10M17 7 7 17"/><path class="i-ok" d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <span class="pain__problem">Ищешь установщик под нужную версию и не знаешь, какой из пяти правильный.</span>
+          <span class="pain__fix">TKPL сам показывает загрузчики, которые реально есть для твоей версии.</span>
+        </li>
+        <li class="pain__item" data-reveal>
+          <span class="pain__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="i-x" d="M7 7l10 10M17 7 7 17"/><path class="i-ok" d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <span class="pain__problem">Fabric-мод падает, потому что забыл Fabric API.</span>
+          <span class="pain__fix">TKPL заметит, что Fabric API нет, и предложит его поставить.</span>
+        </li>
+        <li class="pain__item" data-reveal>
+          <span class="pain__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="i-x" d="M7 7l10 10M17 7 7 17"/><path class="i-ok" d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <span class="pain__problem">Моды от разных сборок свалены в одну папку и мешают друг другу.</span>
+          <span class="pain__fix">У каждой сборки своя папка: моды, шейдеры и сохранения не смешиваются.</span>
+        </li>
+      </ul>
+      <p class="pain__answer" id="pain-answer">TKPL берёт это на себя.</p>
+    </div>
+  </section>
+
+  <!-- ВОЗМОЖНОСТИ -->
+  <section class="features" id="features">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Возможности</p>
+        <h2 data-reveal>Всё, что нужно,<br>и ничего лишнего</h2>
+      </header>
+
+      <div class="bento">
+        <article data-tilt class="tile tile--wide" data-reveal>
+          <div class="tile__text">
+            <h3>Все загрузчики модов</h3>
+            <p>Выбираешь версию, и лаунчер показывает только те загрузчики, что для неё реально существуют. Список берётся с официальных источников и обновляется сам.</p>
+          </div>
+          <ul class="chips" aria-label="Поддерживаемые загрузчики">
+            <li>Vanilla</li><li>Forge</li><li>NeoForge</li><li>Fabric</li><li>OptiFine</li>
+          </ul>
+        </article>
+
+        <article data-tilt class="tile tile--tall" data-reveal>
+          <svg class="tile__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>
+          <h3>Сборки</h3>
+          <p>У каждой сборки свои моды, ресурспаки, шейдеры и сохранения. Сборки никак не пересекаются, поэтому одна не сломает другую.</p>
+          <ul class="mini-builds" aria-hidden="true">
+            <li><span class="dot dot--green"></span>Выживание с друзьями<small>Fabric 1.21.1</small></li>
+            <li><span class="dot dot--amber"></span>Техно-модпак<small>Forge 1.20.1</small></li>
+            <li><span class="dot dot--blue"></span>Ванилла<small>26.3</small></li>
+          </ul>
+        </article>
+
+        <article data-tilt class="tile" data-reveal>
+          <svg class="tile__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+          <h3>Подскажет, где проблема</h3>
+          <p>Если в Fabric-сборке нет Fabric API, лаунчер предложит его поставить. Моды, которые к сборке не подходят, он подсветит.</p>
+        </article>
+
+        <article data-tilt class="tile" data-reveal>
+          <svg class="tile__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg>
+          <h3>Новости Mojang</h3>
+          <p>Патчноуты из официального фида с обложками. Кликнешь на карточку, и откроется полный список изменений.</p>
+        </article>
+
+        <article data-tilt class="tile" data-reveal>
+          <svg class="tile__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <h3>Видно, сколько ждать</h3>
+          <p>Пока идёт установка, лаунчер показывает общий процент, текущий шаг и оставшееся время.</p>
+        </article>
+
+        <article data-tilt class="tile" data-reveal>
+          <svg class="tile__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          <h3>Вход по нику</h3>
+          <p>Вводишь ник и играешь. Лаунчер запомнит, кто заходил последним.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК НАЧАТЬ -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Как начать</p>
+        <h2 data-reveal>Три шага до игры</h2>
+      </header>
+      <div class="steps__rail" aria-hidden="true"><span id="steps-fill"></span></div>
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="step__num">01</span>
+          <h3>Скачай</h3>
+          <p>Один файл .exe, ставить ничего не нужно. Если Windows спросит, нажми «Подробнее» → «Выполнить в любом случае».</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num">02</span>
+          <h3>Введи ник</h3>
+          <p>Если такого аккаунта ещё нет, лаунчер предложит его создать.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num">03</span>
+          <h3>Выбери версию и жми «Играть»</h3>
+          <p>Первый раз лаунчер всё скачает, потом игра запускается сразу.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ВОПРОСЫ -->
+  <section class="faq" id="faq">
+    <div class="wrap faq__inner">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Вопросы</p>
+        <h2 data-reveal>Что обычно спрашивают</h2>
+      </header>
+      <div class="faq__list">
+        <details data-reveal>
+          <summary>Windows пишет, что файл может быть опасен. Это нормально?</summary>
+          <p>Да. Так Windows реагирует на любую программу без платной цифровой подписи, особенно новую. Нажми «Подробнее» → «Выполнить в любом случае».</p>
+        </details>
+        <details data-reveal>
+          <summary>Нужно ли отдельно ставить Java?</summary>
+          <p>Нет. Нужную версию Java лаунчер скачивает сам вместе с игрой.</p>
+        </details>
+        <details data-reveal>
+          <summary>Куда устанавливается игра?</summary>
+          <p>В папку <code>%USERPROFILE%\.tkpl_minecraft</code>. Сборки лежат там же, каждая в своей подпапке.</p>
+        </details>
+        <details data-reveal>
+          <summary>Сколько стоит?</summary>
+          <p>Нисколько. Лаунчер бесплатный и без рекламы.</p>
+        </details>
+        <details data-reveal>
+          <summary>Нашёл баг или есть идея. Куда писать?</summary>
+          <p>В форму ниже. Сообщение придёт автору на почту.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФИДБЕК -->
+  <section class="feedback" id="feedback">
+    <div class="wrap feedback__inner">
+      <div class="feedback__copy">
+        <p class="eyebrow" data-reveal>Обратная связь</p>
+        <h2 data-reveal>Напиши, что<br>улучшить</h2>
+        <p data-reveal>Баг, идея или просто впечатление. Всё читаю сам. Если хочешь получить ответ, оставь контакт.</p>
+      </div>
+
+      <form class="form" id="feedback-form" novalidate data-reveal>
+        <div class="field">
+          <label for="f-name">Ник или имя</label>
+          <input id="f-name" name="name" type="text" maxlength="40" autocomplete="nickname" required>
+          <small class="field__error" id="f-name-err" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="f-contact">Контакт для ответа <span class="opt">необязательно</span></label>
+          <input id="f-contact" name="contact" type="text" maxlength="100" autocomplete="email" aria-describedby="f-contact-hint">
+          <small class="field__hint" id="f-contact-hint">Почта или Telegram</small>
+        </div>
+        <fieldset class="field rating">
+          <legend>Оценка <span class="opt">необязательно</span></legend>
+          <div class="rating__row">
+            <input type="radio" name="rating" id="r1" value="1"><label for="r1" aria-label="1 из 5">1</label>
+            <input type="radio" name="rating" id="r2" value="2"><label for="r2" aria-label="2 из 5">2</label>
+            <input type="radio" name="rating" id="r3" value="3"><label for="r3" aria-label="3 из 5">3</label>
+            <input type="radio" name="rating" id="r4" value="4"><label for="r4" aria-label="4 из 5">4</label>
+            <input type="radio" name="rating" id="r5" value="5"><label for="r5" aria-label="5 из 5">5</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-message">Сообщение</label>
+          <textarea id="f-message" name="message" rows="5" maxlength="2000" required></textarea>
+          <small class="field__error" id="f-message-err" aria-live="polite"></small>
+        </div>
+        <!-- ловушка для ботов: люди это поле не видят -->
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Сайт</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn btn--lg btn--block" type="submit" id="f-submit">
+          <span class="btn__label">Отправить</span>
+        </button>
+        <p class="form__status" id="f-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ФИНАЛ -->
+  <section class="final">
+    <div class="final__ground" id="final-ground" aria-hidden="true"></div>
+    <div class="wrap final__inner" data-reveal>
+      <h2>Хватит настраивать.<br><span class="accent">Пора играть.</span></h2>
+      <a class="btn btn--lg btn--shine js-download js-magnet" href="../downloads/TKPL-Launcher.exe" download="TKPL Launcher.exe">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+        Скачать для Windows
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="logo"><span class="logo__cube logo__cube--sm" aria-hidden="true"></span><span class="logo__text">TKPL</span></span>
+    <p>TKPL Launcher — неофициальный проект, он не связан с Mojang Studios и Microsoft. Minecraft — товарный знак Mojang Synergies AB.</p>
+  </div>
+</footer>
+
+<script type="module" src="../js/main.js"></script>
+</body>
+</html>
