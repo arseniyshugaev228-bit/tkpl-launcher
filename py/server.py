@@ -91,7 +91,9 @@ def js(name: str):
 
 @app.get("/downloads/<path:name>")
 def downloads(name: str):
-    return send_from_directory(DOWNLOADS_DIR, name, as_attachment=True, download_name="TKPL Launcher.exe")
+    if name.lower().endswith(".exe"):
+        return send_from_directory(DOWNLOADS_DIR, name, as_attachment=True, download_name="TKPL Launcher.exe")
+    return send_from_directory(DOWNLOADS_DIR, name)  # LICENSE.txt и прочие тексты открываются в браузере
 
 
 @app.after_request
